@@ -6,27 +6,16 @@
     </head>
 
     <body>
-
-        <header>
-            <h1 class="">
-                Travel App
-            </h1>
-        </header>
-
         <main>
-            <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="url" type="text" name="input" value="" placeholder="Enter Blog to Analyze...">
-                    <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
-            </section>
-
-            <section class = "formresults">
-                <h2>Form Results:</h2>
-                <div id="agreement"></div>
-                <div id="confidence"></div>
-                <div id="subjectivity"></div>
-            </section>
+            <div class="container">
+                <section class = "container-section">
+                    <h1 class = "container-section-title">Travel App</h1>
+                    <form class="" onsubmit="return Client.handleSubmit(event)">
+                        <input id="url" type="text" name="input" value="" placeholder="Enter Blog to Analyze...">
+                        <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    </form>
+                </section>
+            </div>
         </main>
 
         <footer>
