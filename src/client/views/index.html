@@ -3,25 +3,37 @@
     <head>
         <meta charset="utf-8">
         <title>Travel App</title>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
         <main>
-            <div class="container">
-                <section class = "container-section">
-                    <h1 class = "container-section-title">Travel App</h1>
-                    <form class="" onsubmit="return Client.handleSubmit(event)">
-                        <input id="url" type="text" name="input" value="" placeholder="Enter Blog to Analyze...">
-                        <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                    </form>
-                </section>
+            <div class="container-full-screen">
+                <h1 class = "container-section-title">Travel App</h1>
+                <div class="container-search">
+                    <div class="input-heading">
+                        <label>Departure City</label><br>
+                        <input class="input-depart" type="text">
+                    </div>
+                    <div class="input-heading">
+                        <label>Arrival City</label><br>
+                        <input class="input-depart" type="text">
+                    </div>
+                    <div class="input-heading">
+                        <label>Departure Date</label><br>
+                        <input class="input-depart-date" type="date">
+                    </div>
+                    <div class="input-heading">
+                        <label>Arrival Date</label><br>
+                        <input class="input-return-date" type="date">
+                    </div>
+                    <div class="input-heading">
+                        <br>
+                        <button type="button">Search</button>
+                    </div>
+                </div>
             </div>
         </main>
-
-        <footer>
-            <p id="footer"></p>
-        </footer>
-
         <script>
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
@@ -32,4 +44,3 @@
 
     </body>
 </html>
-

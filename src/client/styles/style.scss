@@ -1,6 +1,40 @@
-.container-section {
-    height: 80vh;
+.container-full-screen {
+    height: 100vh;
     background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1413&q=80');
     background-size: cover;
     background-position: center;
+}
+
+.container-section-title {
+    padding-top: 200px;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    font-size: 60px;
+}
+
+.container-search {
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.container-search label {
+    text-align: left;
+    color: black;
+}
+
+.container-search input, button {
+    padding: 0.2em;
+    height: 2vh;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    color: gray;
+}
+
+.input-heading {
+    background-color: rgba(255, 255, 255,0.7);
+    height: 100px;
+    padding: 20px;
 }
