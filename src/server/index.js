@@ -23,7 +23,7 @@ const apiKey = process.env.API_KEY
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1?'
 console.log(`Your API key is ${process.env.API_KEY}`);
 
-const port = 8080;
+const port = 8081;
 
 app.listen(port, function () {
     console.log(`Running on localhost: ${port}`)
