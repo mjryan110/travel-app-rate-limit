@@ -29,6 +29,22 @@ app.listen(port, function () {
     console.log(`Running on localhost: ${port}`)
 })
 
+//Geonames API
+const geonames_apiKey = process.env.GEONAMES_API_KEY
+const geonames_baseURL = 'https://api.meaningcloud.com/sentiment-2.1?'
+console.log(`Your API key is ${process.env.GEONAMES_API_KEY}`);
+
+//Weatherbit API
+const weatherbit_apiKey = process.env.WEATHERBIT_API_KEY
+const weatherbit_baseURL = 'https://api.weatherbit.io/v2.0/forecast/daily?'
+console.log(`Your API key is ${process.env.WEATHERBIT_API_KEY}`);
+
+//Pixabay API
+const pixabay_apiKey = process.env.PIXABAY_API_KEY
+const pixabay_baseURL = 'https://pixabay.com/api/?'
+console.log(`Your API key is ${process.env.PIXABAY_API_KEY}`);
+
+//Send to client
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
     })
