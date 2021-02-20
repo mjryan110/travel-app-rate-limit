@@ -9,7 +9,16 @@ function handleSubmit(event) {
     let tripStartDate = new Date(document.getElementById("departure-date").value)
     let tripEndDate = new Date(document.getElementById("return-date").value)
     let today = new Date()
-    
+
+    let tripLength = tripEndDate - tripStartDate
+    let timeToTrip = tripStartDate - today
+
+    if (tripStartDate < today || tripStartDate > tripEndDate) {
+        alert("Invalid date selection")
+        return
+    }
+
+
     
     
 
