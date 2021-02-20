@@ -4,7 +4,13 @@ function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let cityInput = document.getElementsByClassName('destination-city').value
+    let originCityInput = document.getElementById('origin-city').value
+    let destinationCityInput = document.getElementById('destination-city').value
+    let tripStartDate = new Date(document.getElementById("departure-date").value)
+    let tripEndDate = new Date(document.getElementById("return-date").value)
+    let today = new Date()
+    
+    
     
 
 }
