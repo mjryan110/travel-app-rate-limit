@@ -10,8 +10,8 @@ function handleSubmit(event) {
     let tripEndDate = new Date(document.getElementById("return-date").value)
     let today = new Date()
 
-    let tripLength = tripEndDate - tripStartDate
-    let timeToTrip = tripStartDate - today
+    let tripLength = Math.round((tripEndDate - tripStartDate) / (1000*60*60*24))
+    let timeToTrip = Math.round((tripStartDate - today) / (1000*60*60*24)) 
 
     if (tripStartDate < today || tripStartDate > tripEndDate) {
         alert("Invalid date selection")
