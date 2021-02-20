@@ -49,11 +49,11 @@ app.post('/api', async function(req, res) {
 
 
 //// Weatherbit API ////
-const weatherbit_apiKey = process.env.WEATHERBIT_API_KEY
-const weatherbit_baseURL = 'https://api.weatherbit.io/v2.0/forecast/daily?'
-console.log(`Your API key is ${process.env.WEATHERBIT_API_KEY}`);
+//const weatherbit_apiKey = process.env.WEATHERBIT_API_KEY
+//const weatherbit_baseURL = 'https://api.weatherbit.io/v2.0/forecast/daily?'
+//console.log(`Your API key is ${process.env.WEATHERBIT_API_KEY}`);
 
 //// Pixabay API //// 
-const pixabay_apiKey = process.env.PIXABAY_API_KEY
-const pixabay_baseURL = 'https://pixabay.com/api/?'
-console.log(`Your API key is ${process.env.PIXABAY_API_KEY}`);
+//const pixabay_apiKey = process.env.PIXABAY_API_KEY
+//const pixabay_baseURL = 'https://pixabay.com/api/?'
+//console.log(`Your API key is ${process.env.PIXABAY_API_KEY}`);
