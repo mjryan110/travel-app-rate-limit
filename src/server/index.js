@@ -44,6 +44,11 @@ app.post('/city', async function(req, res) {
     const city_lat_long = await geonamesFetch.json()
     console.log(city_lat_long)
     res.send(city_lat_long)
+    const testData = {
+        city: city_lat_long.city
+    }
+
+    res.send(testData)
 })
 
 
