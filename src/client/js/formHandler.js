@@ -15,6 +15,8 @@ const handleSubmit = async(event) => {
         //return
     //}
 
+    let cityInfo = {}
+
     const geonamesData = await fetch('http://localhost:8081/city', {
         method: 'POST',
         credentials: 'same-origin',
@@ -27,8 +29,10 @@ const handleSubmit = async(event) => {
 
     try {
         const geonnamesJSON = await geonamesData.json();
-        console.log('Data Received', geonnamesJSON)
-        return geonnamesJSON;
+        cityInfo = {
+            city: geonnamesJSON.geonames[0].name
+        }
+        console.log('Data Received', cityInfo)
     } catch(error) {
         console.log('error', error);
     }
