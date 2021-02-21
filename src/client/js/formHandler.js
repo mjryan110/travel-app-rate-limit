@@ -1,5 +1,3 @@
-import { response } from "express";
-
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -17,29 +15,24 @@ function handleSubmit(event) {
         alert("Invalid date selection")
         return
     }
-
-
-    
-    
-
 }
 
 const postData = async(url = "", data = {}) => {
     console.log('Analyzing', data);
-    const response = await fetch(url, {
+    const geonamesData = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({city: destinationCityInput})
     });
 
     try {
-        const newData = await response.json();
-        console.log('Data Received:', newData)
-        return newData;
+        const geonnamesJSON = await geonamesData.json();
+        console.log('Data Received:', geonnamesJSON)
+        return geonnamesJSON;
     } catch(error) {
         console.log('error', error);
     }
