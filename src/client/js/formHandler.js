@@ -1,6 +1,7 @@
-function handleSubmit(event) {
+const handleSubmit = async(event) => {
     event.preventDefault()
 
+    let destinationCityInput = document.getElementById('destination-city').value
     //let originCityInput = document.getElementById('origin-city').value
     //let tripStartDate = new Date(document.getElementById("departure-date").value)
     //let tripEndDate = new Date(document.getElementById("return-date").value)
@@ -14,26 +15,24 @@ function handleSubmit(event) {
         //return
     //}
 
-    const postData = async(url = "", data = {}) => {
-        console.log('Analyzing', data);
-        const geonamesData = await fetch(url, {
-            method: 'POST',
-            credentials: 'same-origin',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({city: destinationCityInput})
-        });
+    const geonamesData = await fetch('http://localhost:8081/api', {
+        method: 'POST',
+        credentials: 'same-origin',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({city: destinationCityInput})
+    });
 
-        try {
-            const geonnamesJSON = await geonamesData.json();
-            console.log('Data Received:', geonnamesJSON)
-            return geonnamesJSON;
-        } catch(error) {
-            console.log('error', error);
-        }
+    try {
+        const geonnamesJSON = await geonamesData.json();
+        console.log('Data Received', geonnamesJSON)
+        return geonnamesJSON;
+    } catch(error) {
+        console.log('error', error);
     }
 }
+
 
 export { handleSubmit }
