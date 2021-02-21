@@ -15,7 +15,7 @@ const handleSubmit = async(event) => {
         //return
     //}
 
-    const geonamesData = await fetch('http://localhost:8081/api', {
+    const geonamesData = await fetch('http://localhost:8081/city', {
         method: 'POST',
         credentials: 'same-origin',
         mode: 'cors',
