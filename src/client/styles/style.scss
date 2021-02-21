@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     font-family: sans-serif;
+    background-color: rgba(255, 255, 255,0.7);
 }
 
 .container-search label {
@@ -24,7 +25,7 @@
     color: black;
 }
 
-.container-search input, button {
+.container-search input {
     padding: 0.2em;
     height: 2vh;
     -moz-box-sizing: content-box;
@@ -34,7 +35,6 @@
 }
 
 .input-heading {
-    background-color: rgba(255, 255, 255,0.7);
     height: 100px;
     padding: 20px;
 }
