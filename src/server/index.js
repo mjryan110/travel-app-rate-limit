@@ -31,17 +31,17 @@ app.get('/', function (req, res) {
 
 //// Geonames API ////
 const GEONAMES_USER_NAME = process.env.GEONAMES_USER_NAME
-const geonames_baseURL = 'api.geonames.org/search?'
+const geonames_baseURL = 'api.geonames.org/searchJSON?'
 console.log(`Your API key is ${process.env.GEONAMES_USER_NAME}`);
 
 // Post Route
 app.post('/city', async function(req, res) {
-    city = req.body.city;
+    city = encodeURI(req.body.city);
     console.log(`You entered: ${city}`);
     const geonamesINFO = `${geonames_baseURL}q=${city}&username=${GEONAMES_USER_NAME}&maxRows=1&lang=en`
 
-    const response = await fetch(geonamesINFO)
-    const city_lat_long = await response.json()
+    const geonamesFetch = await fetch(geonamesINFO)
+    const city_lat_long = await geonamesFetch.json()
     console.log(city_lat_long)
     res.send(city_lat_long)
 })
