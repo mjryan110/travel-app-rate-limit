@@ -26,9 +26,9 @@
                         <label>Return Date</label><br>
                         <input class="input-return-date" id="return-date" type="date">
                     </div>
-                    <div class="input-heading">
+                    <form class="input-heading" onsubmit="return Client.handleSubmit(event)">
                         <br>
-                        <button type="button" name="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">Search</button>
+                        <input type="submit" name="" value="Search" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">Search</button>
                     </div>
                 </div>
             </div>
