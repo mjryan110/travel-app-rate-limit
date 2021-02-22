@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
 
 //// Geonames API ////
 const GEONAMES_USER_NAME = process.env.GEONAMES_USER_NAME
-const geonames_baseURL = 'api.geonames.org/searchJSON?'
+const geonames_baseURL = 'http://api.geonames.org/searchJSON?'
 console.log(`Your API key is ${process.env.GEONAMES_USER_NAME}`);
 
 // Post Route
