@@ -36,9 +36,9 @@ console.log(`Your API key is ${process.env.GEONAMES_USER_NAME}`);
 
 // Post Route
 app.post('/city', async function(req, res) {
-    city = req.body.destinationCityInput;
-    console.log(`You entered: ${city}`);
-    const geonamesINFO = `${geonames_baseURL}q=${city}&username=${GEONAMES_USER_NAME}&maxRows=1&lang=en`
+    destcity = req.body.city;
+    console.log(`You entered: ${destcity}`);
+    const geonamesINFO = `${geonames_baseURL}q=${destcity}&username=${GEONAMES_USER_NAME}&maxRows=1&lang=en`
     console.log(geonamesINFO)
 
     const geonamesFetch = await fetch(geonamesINFO)
