@@ -1,7 +1,10 @@
-const handleSubmit = async(event) => {
+function handleSubmit(event) {
     event.preventDefault()
 
     let destinationCityInput = document.getElementById('destination-city').value
+
+    postData('http://localhost:8081/city', {url: destinationCityInput})
+
     //let originCityInput = document.getElementById('origin-city').value
     //let tripStartDate = new Date(document.getElementById("departure-date").value)
     //let tripEndDate = new Date(document.getElementById("return-date").value)
@@ -15,28 +18,27 @@ const handleSubmit = async(event) => {
         //return
     //}
 
-    let cityInfo = {}
+}
 
-    const geonamesData = await fetch('http://localhost:8081/city', {
+const postData = async(url = "", data = {}) => {
+    console.log('Analyzing', data);
+    const geonamesData = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({city: destinationCityInput})
+        body: JSON.stringify({data})
     });
 
     try {
         const geonnamesJSON = await geonamesData.json();
-        cityInfo = {
-            city: geonnamesJSON.geonames[0].name
-        }
-        console.log('Data Received', cityInfo)
+        console.log('Data Received:', geonnamesJSON)
+        return geonnamesJSON;
     } catch(error) {
         console.log('error', error);
     }
-}
-
-
+};
+    
 export { handleSubmit }
