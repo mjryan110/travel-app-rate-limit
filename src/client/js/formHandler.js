@@ -5,6 +5,8 @@ function handleSubmit(event) {
 
     postData('http://localhost:8081/city', {city: destinationCityInput})
 
+    let lat_long = {}
+    console.log(lat_long);
     //let originCityInput = document.getElementById('origin-city').value
     //let tripStartDate = new Date(document.getElementById("departure-date").value)
     //let tripEndDate = new Date(document.getElementById("return-date").value)
@@ -19,8 +21,6 @@ function handleSubmit(event) {
     //}
 
 }
-
-let lat_long = {}
 
 const postData = async(city = "", data = {}) => {
     console.log('Analyzing', data);
@@ -42,7 +42,7 @@ const postData = async(city = "", data = {}) => {
             long: geonnamesJSON.geonames[0].lng
         }
         console.log('Data Received:', lat_long)
-        return lat_long;
+        return lat_long;        
     } catch(error) {
         console.log('error', error);
     }
