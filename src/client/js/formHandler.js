@@ -20,6 +20,8 @@ function handleSubmit(event) {
 
 }
 
+let lat_long = {}
+
 const postData = async(city = "", data = {}) => {
     console.log('Analyzing', data);
     const geonamesData = await fetch(city, {
@@ -34,8 +36,13 @@ const postData = async(city = "", data = {}) => {
 
     try {
         const geonnamesJSON = await geonamesData.json();
-        console.log('Data Received:', geonnamesJSON)
-        return geonnamesJSON;
+        lat_long = {
+            city: geonnamesJSON.geonames[0].name,
+            lat: geonnamesJSON.geonames[0].lat,
+            long: geonnamesJSON.geonames[0].lng
+        }
+        console.log('Data Received:', lat_long)
+        return lat_long;
     } catch(error) {
         console.log('error', error);
     }
