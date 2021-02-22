@@ -3,7 +3,7 @@ function handleSubmit(event) {
 
     let destinationCityInput = document.getElementById('destination-city').value
 
-    postData('http://localhost:8081/city', {url: destinationCityInput})
+    postData('http://localhost:8081/city', {city: destinationCityInput})
 
     //let originCityInput = document.getElementById('origin-city').value
     //let tripStartDate = new Date(document.getElementById("departure-date").value)
@@ -20,9 +20,9 @@ function handleSubmit(event) {
 
 }
 
-const postData = async(url = "", data = {}) => {
+const postData = async(city = "", data = {}) => {
     console.log('Analyzing', data);
-    const geonamesData = await fetch(url, {
+    const geonamesData = await fetch(city, {
         method: 'POST',
         credentials: 'same-origin',
         mode: 'cors',
