@@ -6,6 +6,7 @@ const handleSubmit = async(event) => {
     const lat_long = await
     postDataCity('http://localhost:8081/city', {city: destinationCityInput})
     postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
+    postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
 }
 
 
@@ -56,7 +57,26 @@ const postDataWeather = async(weather = "", data = {}) => {
     }
 };
 
+const postDataPicture = async(city = "", data = {}) => {
+    console.log('Analyzing', data);
+    const pixabayData = await fetch(city, {
+        method: 'POST',
+        credentials: 'same-origin',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
 
+    try {
+        const pixabayJSON = await pixabayData.json();
+        console.log('Data Received:', pixabayJSON)
+        return pixabayJSON;        
+    } catch(error) {
+        console.log('error', error);
+    }
+};
 
 
 export { handleSubmit }

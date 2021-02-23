@@ -67,6 +67,17 @@ app.post('/weather', async function (req, res) {
 })
 
 //// Pixabay API //// 
-//const pixabay_apiKey = process.env.PIXABAY_API_KEY
-//const pixabay_baseURL = 'https://pixabay.com/api/?'
-//console.log(`Your API key is ${process.env.PIXABAY_API_KEY}`);
+const pixabay_apiKey = process.env.PIXABAY_API_KEY
+const pixabay_baseURL = 'https://pixabay.com/api/?'
+console.log(`Your API key is ${process.env.PIXABAY_API_KEY}`);
+
+app.post('/cityPic', async function (req, res) {
+    destcity_pic = req.body.city;
+    const pixabayINFO = `${pixabay_baseURL}key=${pixabay_apiKey}&q=${destcity_pic}&image_type=photo&pretty=true&per_page=3` 
+    console.log(pixabayINFO)
+
+    const pixabayFetch = await fetch(pixabayINFO)
+    const pixabayFetchJSON = await pixabayFetch.json()
+    console.log(pixabayFetchJSON)
+    res.send(pixabayFetchJSON)
+})
