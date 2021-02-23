@@ -1,8 +1,9 @@
-function handleSubmit(event) {
+const handleSubmit = async(event) => {
     event.preventDefault()
 
     let destinationCityInput = document.getElementById('destination-city').value
 
+    const lat_long = await
     postDataCity('http://localhost:8081/city', {city: destinationCityInput})
     postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
 }
@@ -36,7 +37,7 @@ const postDataCity = async(city = "", data = {}) => {
 
 const postDataWeather = async(weather = "", data = {}) => {
     console.log('Analyzing', data);
-    const geonamesData = await fetch(weather, {
+    const weatherbitData = await fetch(weather, {
         method: 'POST',
         credentials: 'same-origin',
         mode: 'cors',
@@ -47,7 +48,7 @@ const postDataWeather = async(weather = "", data = {}) => {
     });
 
     try {
-        const weatherbitJSON = await geonamesData.json();
+        const weatherbitJSON = await weatherbitData.json();
         console.log('Data Received:', weatherbitJSON)
         return weatherbitJSON;        
     } catch(error) {

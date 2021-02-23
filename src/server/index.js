@@ -56,7 +56,7 @@ console.log(`Your API key is ${process.env.WEATHERBIT_API_KEY}`);
 
 app.post('/weather', async function (req, res) {
     destcity_lat = req.body.lat ;
-    destcity_long = req.body.long;
+    destcity_long = req.body.lon;
     const weatherbitINFO = `${weatherbit_baseURL}lat=${destcity_lat}&lon=${destcity_long}&key=${weatherbit_apiKey}` 
     console.log(weatherbitINFO)
 
