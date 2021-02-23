@@ -50,9 +50,21 @@ app.post('/city', async function(req, res) {
 
 
 //// Weatherbit API ////
-//const weatherbit_apiKey = process.env.WEATHERBIT_API_KEY
-//const weatherbit_baseURL = 'https://api.weatherbit.io/v2.0/forecast/daily?'
-//console.log(`Your API key is ${process.env.WEATHERBIT_API_KEY}`);
+const weatherbit_apiKey = process.env.WEATHERBIT_API_KEY
+const weatherbit_baseURL = 'https://api.weatherbit.io/v2.0/forecast/daily?'
+console.log(`Your API key is ${process.env.WEATHERBIT_API_KEY}`);
+
+app.post('/weather', async function (req, res) {
+    destcity_lat = req.body.lat ;
+    destcity_long = req.body.long;
+    const weatherbitINFO = `${weatherbit_baseURL}lat=${destcity_lat}&lon=${destcity_long}&key=${weatherbit_apiKey}` 
+    console.log(weatherbitINFO)
+
+    const weatherbitFetch = await fetch(weatherbitINFO)
+    const weatherbitFetchJSON = await weatherbitFetch.json()
+    console.log(weatherbitFetchJSON)
+    res.send(weatherbitFetchJSON)
+})
 
 //// Pixabay API //// 
 //const pixabay_apiKey = process.env.PIXABAY_API_KEY
