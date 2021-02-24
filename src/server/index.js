@@ -72,7 +72,7 @@ const pixabay_baseURL = 'https://pixabay.com/api/?'
 console.log(`Your API key is ${process.env.PIXABAY_API_KEY}`);
 
 app.post('/cityPic', async function (req, res) {
-    destcity_pic = req.body.city;
+    destcity_pic = req.body.city.toLowerCase();
     const pixabayINFO = `${pixabay_baseURL}key=${pixabay_apiKey}&q=${destcity_pic}&image_type=photo&pretty=true&per_page=3` 
     console.log(pixabayINFO)
 
