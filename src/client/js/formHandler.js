@@ -70,9 +70,16 @@ const postDataWeather = async(weather = "", data = {}) => {
     
     try {
         const weatherbitJSON = await weatherbitData.json();
-        var weatherInformation = {
-            date: (timeToDeparture < 8) ? weatherbitJSON.data[0].valid_date: weatherbitJSON.data[`${timeToDeparture}`].valid_date,
-            maxTemp: (timeToDeparture < 8) ? weatherbitJSON.data[0].max_temp: weatherbitJSON.data[`${timeToDeparture}`].max_temp
+        if (timeToDeparture < 8) {
+            var weatherInformation = {
+                date: weatherbitJSON.data[0].valid_date,
+                maxTemp: weatherbitJSON.data[0].max_temp
+            }
+        } else {
+            var weatherInformation = {
+                date: weatherbitJSON.data[`${timeToDeparture}`].valid_date,
+                maxTemp: weatherbitJSON.data[`${timeToDeparture}`].max_temp
+            }
         }
         console.log('Weather Data Received:', weatherInformation)
         return weatherInformation;        
