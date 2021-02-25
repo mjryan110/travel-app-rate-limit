@@ -112,5 +112,8 @@ const postDataPicture = async(city = "", data = {}) => {
     }
 };
 
+function updateUI(event) {
+
+}
 
 export { handleSubmit }
