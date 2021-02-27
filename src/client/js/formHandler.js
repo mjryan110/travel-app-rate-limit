@@ -10,9 +10,26 @@ const handleSubmit = async(event) => {
     postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
     postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
 
-    document.getElementById("updated-destination-city").innerHTML = destinationCityInput;
-    document.getElementById("updated-depart-date").innerHTML = departureDate;
-    document.getElementById("updated-max-temp").innerHTML = lat_long.lat;
+    
+    // Getting Date info for UI
+    let todayUI = new Date()
+    let departureDateUI = new Date(document.getElementById('departure-date').value)
+    let timeToDepartureUI = Math.round((departureDateUI - todayUI) / (1000*60*60*24))+1
+
+    let dates = {todayUI, departureDateUI, timeToDepartureUI}
+
+    // Getting Weather info for UI
+    const weatherInformation = await weatherInformation
+    let maxtemp = weatherInformation.maxTemp;
+
+    weather = {maxtemp}
+    
+    // Using the updateUI function
+    const main = document.querySelector('main')
+    const tripData = document.createElement('section')
+    tripData.setAttribute('id', 'trip')
+    tripData.innerHTML = Client.updateUI(lat_long, dates, weather);
+    main.appendChild(tripData)
 }
 
 
@@ -110,12 +127,5 @@ const postDataPicture = async(city = "", data = {}) => {
     }
 };
 
-/**function updateUI(event) {
-    hidden_info_card.classList.remove('hidden-info');
 
-    let destination_city = document.getElementById("updated-destination-city");
-
-    destination_city.innerHTML = event.to;
-}
-*/
 export { handleSubmit }

@@ -43,7 +43,6 @@ app.post('/city', async function(req, res) {
 
     const geonamesFetch = await fetch(geonamesINFO)
     const city_lat_long = await geonamesFetch.json()
-    console.log(city_lat_long)
     res.send(city_lat_long)
 })
 
@@ -58,11 +57,9 @@ app.post('/weather', async function (req, res) {
     destcity_lat = req.body.lat ;
     destcity_long = req.body.lon;
     const weatherbitINFO = `${weatherbit_baseURL}lat=${destcity_lat}&lon=${destcity_long}&key=${weatherbit_apiKey}` 
-    console.log(weatherbitINFO)
 
     const weatherbitFetch = await fetch(weatherbitINFO)
     const weatherbitFetchJSON = await weatherbitFetch.json()
-    console.log(weatherbitFetchJSON)
     res.send(weatherbitFetchJSON)
 })
 
@@ -74,10 +71,8 @@ console.log(`Your API key is ${process.env.PIXABAY_API_KEY}`);
 app.post('/cityPic', async function (req, res) {
     destcity_pic = req.body.city.toLowerCase();
     const pixabayINFO = `${pixabay_baseURL}key=${pixabay_apiKey}&q=${destcity_pic}&image_type=photo&pretty=true&per_page=3` 
-    console.log(pixabayINFO)
 
     const pixabayFetch = await fetch(pixabayINFO)
     const pixabayFetchJSON = await pixabayFetch.json()
-    console.log(pixabayFetchJSON)
     res.send(pixabayFetchJSON)
 })
