@@ -11,10 +11,6 @@
                 <h1 class = "container-section-title">Travel App</h1>
                 <div class="container-search">
                     <div class="input-heading">
-                        <label>Departure City</label><br>
-                        <input class="input-depart" id="origin-city" type="text">
-                    </div>
-                    <div class="input-heading">
                         <label>Arrival City</label><br>
                         <input class="input-depart" id="destination-city" type="text">
                     </div>
@@ -23,15 +19,30 @@
                         <input class="input-depart-date" id="departure-date" type="date">
                     </div>
                     <div class="input-heading">
-                        <label>Return Date</label><br>
-                        <input class="input-return-date" id="return-date" type="date">
-                    </div>
-                    <div class="input-heading">
                         <form class="input-heading" onsubmit="return Client.handleSubmit(event)">
                             <input type="submit" name="" value="Search" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                     </div>
                 </div>
             </div>
+            <section id="hidden_info_card" class="hidden-info">
+                <div class="trip-info">
+                    <div id="destination_city" class="destination-pic">
+                        <img class="destination-pic-displayed" src="https://travel.usnews.com/dims4/USNEWS/174da58/2147483647/resize/255x255%5E%3E/crop/255x255/quality/85/?url=https://travel.usnews.com/images/pineapple_fountain_edited2_pgnDp5c.jpg"
+                        alt="detination-pic-displayed-alt">
+                    </div>
+                    <div class="trip-info-bulk">
+                        <div class="destination-city">
+                            Destination City: <span id="updated-destination-city">Dallas</span>
+                        </div>
+                        <div class="depart-date">
+                            Date of Departure: <span id="updated-depart-date">02-02-2021</span>
+                        </div>
+                        <div class="max-temp">
+                            Expect a Max Temperature of: <span id="updated-max-temp">21</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <script>
             if ('serviceWorker' in navigator) {

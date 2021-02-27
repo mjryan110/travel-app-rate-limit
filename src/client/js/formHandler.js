@@ -2,12 +2,17 @@ const handleSubmit = async(event) => {
     event.preventDefault()
 
     let destinationCityInput = document.getElementById('destination-city').value
+    let departureDate = document.getElementById('departure-date').value;
     
-
     const lat_long = await
+    
     postDataCity('http://localhost:8081/city', {city: destinationCityInput})
     postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
     postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
+
+    document.getElementById("updated-destination-city").innerHTML = destinationCityInput;
+    document.getElementById("updated-depart-date").innerHTML = departureDate;
+    document.getElementById("updated-max-temp").innerHTML = lat_long.lat;
 }
 
 
@@ -42,18 +47,11 @@ const postDataWeather = async(weather = "", data = {}) => {
     
     let today = new Date()
     let departureDate = new Date(document.getElementById('departure-date').value)
-    let returnDate = new Date(document.getElementById('return-date').value)
 
     let timeToDeparture = Math.round((departureDate - today) / (1000*60*60*24))+1
-    let lengthOfTrip = returnDate - departureDate
 
     if (departureDate < today) {
         alert('Invalid Dates - Departure Date must be in the future')
-        return
-    }
-
-    if (departureDate > returnDate) {
-        alert('Invalid Dates - Return Date must be after Departure Date')
         return
     }
 
@@ -112,8 +110,12 @@ const postDataPicture = async(city = "", data = {}) => {
     }
 };
 
-function updateUI(event) {
+/**function updateUI(event) {
+    hidden_info_card.classList.remove('hidden-info');
 
+    let destination_city = document.getElementById("updated-destination-city");
+
+    destination_city.innerHTML = event.to;
 }
-
+*/
 export { handleSubmit }
