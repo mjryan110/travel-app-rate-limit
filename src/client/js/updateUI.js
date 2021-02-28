@@ -3,7 +3,7 @@ function updateUI(lat_long, dates, weather) {
     <section id="hidden_info_card" class="hidden-info">
         <div class="trip-info">
             <div id="destination_city" class="destination-pic">
-                <img class="destination-pic-displayed" src=
+                <img class="destination-pic-displayed" src="https://travel.usnews.com/dims4/USNEWS/174da58/2147483647/resize/255x255%5E%3E/crop/255x255/quality/85/?url=https://travel.usnews.com/images/pineapple_fountain_edited2_pgnDp5c.jpg"
                 alt="detination-pic-displayed-alt">
             </div>
             <div class="trip-info-bulk">
