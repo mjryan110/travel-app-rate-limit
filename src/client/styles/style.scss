@@ -58,6 +58,10 @@
     grid-template-areas: "left" "right";
 }
 
+.trip-info-card:hover {
+    box-shadow: 0px 0px 10px 0px #000000;
+}
+
 .base-text {
     font-weight: bold;
 }

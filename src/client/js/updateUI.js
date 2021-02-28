@@ -23,13 +23,13 @@ function updateUI(lat_long, dates, weather, citySRC) {
                         <div id="depart-date" class="base-text">
                             Date of Departure: 
                             <span id="updated-depart-date" class="updated-info">
-                            ${dates.departureDateUI}
+                            ${weather.departureDate}
                             </span>
                         </div>
                         <div id="max-temp" class="base-text">
                             Expect a Max Temperature of: 
                             <span id="updated-max-temp" class="updated-info">
-                            ${weather.maxtemp}
+                            ${weather.maxtemp}&#176C
                             </span>
                         </div>
                     </div>

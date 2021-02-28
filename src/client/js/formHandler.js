@@ -22,13 +22,16 @@ const handleSubmit = async(event) => {
     postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
     
     let maxtemp = weatherInformation.maxTemp;
-    let weather = {maxtemp}
+    let departureDate = weatherInformation.date;
+    
+    let weather = {maxtemp, departureDate}
 
     // Getting picture for updating the UI picture
     const city_pic = await
     postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
 
     let cityPic = city_pic.cityPicURL;
+    
     let citySRC = {cityPic}
 
     // Using the updateUI function
@@ -79,6 +82,11 @@ const postDataWeather = async(weather = "", data = {}) => {
         return
     }
 
+    if (departureDate == null) {
+        alert('You must enter a date of departure')
+        return        
+    }
+
 
     const weatherbitData = await fetch(weather, {
         method: 'POST',
@@ -94,7 +102,7 @@ const postDataWeather = async(weather = "", data = {}) => {
         const weatherbitJSON = await weatherbitData.json();
         if (timeToDeparture < 8) {
             var weatherInformation = {
-                date: weatherbitJSON.data[0].valid_date,
+                date: weatherbitJSON.data[`${timeToDeparture}`].valid_date,
                 maxTemp: weatherbitJSON.data[0].max_temp
             }
         } else {
