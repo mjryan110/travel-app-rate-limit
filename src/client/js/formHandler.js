@@ -6,7 +6,7 @@ const handleSubmit = async(event) => {
     const lat_long = await
     
     postDataCity('http://localhost:8081/city', {city: destinationCityInput})
-    postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
+    //postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
     postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
 
     
@@ -20,19 +20,22 @@ const handleSubmit = async(event) => {
     // Getting Weather info for UI
     const weatherInformation = await
     postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
-    let maxtemp = weatherInformation.maxTemp;
-
-    let weather = {maxtemp}
     
-    console.log(weather)
+    let maxtemp = weatherInformation.maxTemp;
+    let weather = {maxtemp}
 
     // Getting picture for updating the UI picture
+    const city_pic = await
+    postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
+
+    let cityPic = city_pic.cityPicURL;
+    let citySRC = {cityPic}
 
     // Using the updateUI function
     const main = document.querySelector('main')
     const tripData = document.createElement('section')
     tripData.setAttribute('id', 'trip')
-    tripData.innerHTML = Client.updateUI(lat_long, dates, weather);
+    tripData.innerHTML = Client.updateUI(lat_long, dates, weather, citySRC);
     main.appendChild(tripData)
 }
 

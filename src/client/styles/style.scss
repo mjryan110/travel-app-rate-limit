@@ -39,3 +39,53 @@
     padding: 20px;
 }
 
+#trip {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trip-info-card {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "left" "right";
+}
+
+.base-text {
+    font-weight: bold;
+}
+
+#info-box {
+    align-items: center;
+}
+
+.updated-info {
+    font-weight: normal;
+}
+
+.content-container {
+    display: flex;
+}
+
+.destination-pic-displayed {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+#close {
+    position: absolute;
+    border: solid black 1px;
+    padding: 2px;
+    background:#ccc;
+}

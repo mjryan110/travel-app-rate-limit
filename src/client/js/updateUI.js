@@ -1,33 +1,41 @@
-function updateUI(lat_long, dates, weather) {
+function updateUI(lat_long, dates, weather, citySRC) {
     return `
-    <section id="hidden_info_card" class="hidden-info">
-        <div class="trip-info">
-            <div id="destination_city" class="destination-pic">
-                <img class="destination-pic-displayed" src="https://travel.usnews.com/dims4/USNEWS/174da58/2147483647/resize/255x255%5E%3E/crop/255x255/quality/85/?url=https://travel.usnews.com/images/pineapple_fountain_edited2_pgnDp5c.jpg"
-                alt="detination-pic-displayed-alt">
+        <section id="trip-info-section" class="trip-info-section">
+            <div>
+                <span id='close' 
+                    onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); 
+                    return false;'>
+                    X
+                </span>
             </div>
-            <div class="trip-info-bulk">
-                <div class="destination-city">
-                    Destination City: 
-                    <span id="updated-destination-city">
-                    ${lat_long.city}
-                    </span>
+            <div class="trip-info-card">
+                <div class="content-container" id="picture-box">
+                    <img class="destination-pic-displayed" src=${citySRC.cityPic}>
                 </div>
-                <div class="depart-date">
-                    Date of Departure: 
-                    <span id="updated-depart-date">
-                    ${dates.departureDateUI}
-                    </span>
-                </div>
-                <div class="max-temp">
-                    Expect a Max Temperature of: 
-                    <span id="updated-max-temp">
-                    ${weather.maxtemp}
-                    </span>
+                <div class="content-container" id="info-box">
+                    <div id="trip-info-bulk" class="base-text">
+                        <div class="destination-city">
+                            Destination City: 
+                            <span id="updated-destination-city" class="updated-info">
+                            ${lat_long.city}
+                            </span>
+                        </div>
+                        <div id="depart-date" class="base-text">
+                            Date of Departure: 
+                            <span id="updated-depart-date" class="updated-info">
+                            ${dates.departureDateUI}
+                            </span>
+                        </div>
+                        <div id="max-temp" class="base-text">
+                            Expect a Max Temperature of: 
+                            <span id="updated-max-temp" class="updated-info">
+                            ${weather.maxtemp}
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>`
+        </section>`
 }
 
 export { updateUI }
