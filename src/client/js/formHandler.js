@@ -2,12 +2,11 @@ const handleSubmit = async(event) => {
     event.preventDefault()
 
     let destinationCityInput = document.getElementById('destination-city').value
-    let departureDate = document.getElementById('departure-date').value;
     
     const lat_long = await
     
     postDataCity('http://localhost:8081/city', {city: destinationCityInput})
-    postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
+    const winfo = postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
     postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
 
     
@@ -19,11 +18,13 @@ const handleSubmit = async(event) => {
     let dates = {todayUI, departureDateUI, timeToDepartureUI}
 
     // Getting Weather info for UI
-    const weatherInformation = await weatherInformation
-    let maxtemp = weatherInformation.maxTemp;
+    let maxtemp = winfo.maxTemp;
 
-    weather = {maxtemp}
-    
+    let weather = {maxtemp}
+    console.log(winfo.weatherbitJSON)
+
+    // Getting picture for updating the UI picture
+
     // Using the updateUI function
     const main = document.querySelector('main')
     const tripData = document.createElement('section')
