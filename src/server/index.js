@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
     })
 
 //// Geonames API ////
-const GEONAMES_USER_NAME = process.env.GEONAMES_USER_NAME
+const GEONAMES_USER_NAME = "mjryan110"
 const geonames_baseURL = 'http://api.geonames.org/searchJSON?'
 
 // Post Route
@@ -48,7 +48,7 @@ app.post('/city', async function(req, res) {
 
 
 //// Weatherbit API ////
-const weatherbit_apiKey = process.env.WEATHERBIT_API_KEY
+const weatherbit_apiKey = "d0e557f377454698ba4ea8491b2032d0"
 const weatherbit_baseURL = 'https://api.weatherbit.io/v2.0/forecast/daily?'
 
 app.post('/weather', async function (req, res) {
@@ -62,7 +62,7 @@ app.post('/weather', async function (req, res) {
 })
 
 //// Pixabay API //// 
-const pixabay_apiKey = process.env.PIXABAY_API_KEY
+const pixabay_apiKey = "20322998-18d5fd8aafcf911e5ab26b245"
 const pixabay_baseURL = 'https://pixabay.com/api/?'
 
 app.post('/cityPic', async function (req, res) {
