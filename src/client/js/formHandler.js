@@ -7,7 +7,7 @@ const handleSubmit = async(event) => {
     
     postDataCity('http://localhost:8081/city', {city: destinationCityInput})
     //postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
-    postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
+    //postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
 
     
     // Getting Date info for UI
