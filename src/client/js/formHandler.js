@@ -4,8 +4,8 @@ const handleSubmit = async(event) => {
     let destinationCityInput = document.getElementById('destination-city').value
     
     const lat_long = await
-    
-    postDataCity('http://localhost:8081/city', {city: destinationCityInput})
+
+    postDataCity('http://34.138.28.201:8081/city', {city: destinationCityInput})
     //postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
     //postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
 
@@ -19,7 +19,7 @@ const handleSubmit = async(event) => {
 
     // Getting Weather info for UI
     const weatherInformation = await
-    postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
+    postDataWeather('http://34.138.28.201:8081/weather', {lat: lat_long.lat, lon: lat_long.long})
     
     let maxtemp = weatherInformation.maxTemp;
     let departureDate = weatherInformation.date;
@@ -28,7 +28,7 @@ const handleSubmit = async(event) => {
 
     // Getting picture for updating the UI picture
     const city_pic = await
-    postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
+    postDataPicture('http://34.138.28.201:8081/cityPic', {city: destinationCityInput})
 
     let cityPic = city_pic.cityPicURL;
     
