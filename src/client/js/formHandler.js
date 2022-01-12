@@ -5,7 +5,7 @@ const handleSubmit = async(event) => {
     
     const lat_long = await
 
-    postDataCity('http://34.139.251.900:8081/city', {city: destinationCityInput})
+    postDataCity('http://34.139.251.90:8081/city', {city: destinationCityInput})
     //postDataWeather('http://localhost:8081/weather', {lat: lat_long.lat, lon: lat_long.long})test
     //postDataPicture('http://localhost:8081/cityPic', {city: destinationCityInput})
 
