@@ -35,11 +35,11 @@ const handleSubmit = async(event) => {
     let citySRC = {cityPic}
 
     // Using the updateUI function
-    const main = document.querySelector('main')
+    /*const main = document.querySelector('main')
     const tripData = document.createElement('section')
     tripData.setAttribute('id', 'trip')
     tripData.innerHTML = Client.updateUI(lat_long, dates, weather, citySRC);
-    main.appendChild(tripData)
+    main.appendChild(tripData)*/
 }
 
 

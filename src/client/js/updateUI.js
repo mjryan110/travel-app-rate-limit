@@ -1,4 +1,4 @@
-function updateUI(lat_long, dates, weather, citySRC) {
+/*function updateUI(lat_long, dates, weather, citySRC) {
     return `
         <section id="trip-info-section" class="trip-info-section">
             <div>
@@ -39,3 +39,4 @@ function updateUI(lat_long, dates, weather, citySRC) {
 }
 
 export { updateUI }
+*/
