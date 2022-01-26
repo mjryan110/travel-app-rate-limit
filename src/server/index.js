@@ -65,7 +65,7 @@ app.post('/city', async (req, res) => {
 
     const geonamesFetch = await fetch(geonamesINFO)
     const city_lat_long = await geonamesFetch.json()
-    console.log(city_lat_long)
+    //console.log(city_lat_long)
     res.send(city_lat_long)
 
  //   return res.json({
@@ -88,7 +88,7 @@ app.post('/weather', async function (req, res) {
 
     const weatherbitFetch = await fetch(weatherbitINFO)
     const weatherbitFetchJSON = await weatherbitFetch.json()
-    console.log(weatherbitFetchJSON)
+    //console.log(weatherbitFetchJSON)
     res.send(weatherbitFetchJSON)
 })
 
