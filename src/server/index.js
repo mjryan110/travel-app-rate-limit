@@ -55,7 +55,7 @@ app.post('/city', async (req, res) => {
             ttl
         })
     }
-    
+
     console.log('Number of requests made so far', requests)
 
     destcity = req.body.city;
@@ -67,40 +67,4 @@ app.post('/city', async (req, res) => {
     const city_lat_long = await geonamesFetch.json()
     //console.log(city_lat_long)
     res.send(city_lat_long)
-
- //   return res.json({
- //       response: 'ok',
- //       callsInAMinute: requests,
- //       ttl
- //   })
-})
-
-
-
-//// Weatherbit API ////
-const weatherbit_apiKey = "d0e557f377454698ba4ea8491b2032d0"
-const weatherbit_baseURL = 'https://api.weatherbit.io/v2.0/forecast/daily?'
-
-app.post('/weather', async function (req, res) {
-    destcity_lat = req.body.lat ;
-    destcity_long = req.body.lon;
-    const weatherbitINFO = `${weatherbit_baseURL}lat=${destcity_lat}&lon=${destcity_long}&key=${weatherbit_apiKey}` 
-
-    const weatherbitFetch = await fetch(weatherbitINFO)
-    const weatherbitFetchJSON = await weatherbitFetch.json()
-    //console.log(weatherbitFetchJSON)
-    res.send(weatherbitFetchJSON)
-})
-
-//// Pixabay API //// 
-const pixabay_apiKey = "20322998-18d5fd8aafcf911e5ab26b245"
-const pixabay_baseURL = 'https://pixabay.com/api/?'
-
-app.post('/cityPic', async function (req, res) {
-    destcity_pic = req.body.city.toLowerCase();
-    const pixabayINFO = `${pixabay_baseURL}key=${pixabay_apiKey}&q=${destcity_pic}&image_type=photo&pretty=true&per_page=3` 
-
-    const pixabayFetch = await fetch(pixabayINFO)
-    const pixabayFetchJSON = await pixabayFetch.json()
-    res.send(pixabayFetchJSON)
 })
